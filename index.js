@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
     const referer2 = req.headers.referer || req.headers.referrer;
     const origin = req.headers.origin;
 
+    console.log('kek')
+
 
     // Log the referrer or send it in the response
     res.send({
@@ -22,6 +24,8 @@ var router = express.Router();
 
 //api specific routes
 router.get('/', function (req, res) {
+    console.log('mem')
+
     // Get the referrer header
     const referrer = req.get('Referer') || req.get('Referrer');
     res.send(`Welcome to our API on ${referrer}!`);
