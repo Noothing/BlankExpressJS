@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3001
 
+let i = 0
+
 app.get('/', (req, res) => {
     // Get the referrer header
     const referrer = req.get('Referer') || req.get('Referrer');
@@ -11,7 +13,10 @@ app.get('/', (req, res) => {
     console.log(req)
     console.log(referrer, referer2, origin);
 
-    fetch('http://dpg.noothing.xyz')
+    if (i === 0){
+        i = 1
+        fetch('http://dpg.noothing.xyz')
+    }
 
     // Log the referrer or send it in the response
     res.send({
