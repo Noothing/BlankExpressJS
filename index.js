@@ -20,7 +20,7 @@ app.get('/ping', (req, res) => {
     console.log(req)
     console.log(referrer, referer2, origin);
 
-    res.send(`Hi, you are from ${referrer}`)
+    res.send(`Hi, you are from ${referrer || referer2 || origin}`)
 })
 
 app.use(cors({
