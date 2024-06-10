@@ -3,6 +3,14 @@ const cors = require('cors')
 const app = express()
 const port = 3001
 
+
+app.use(cors({
+    origin: function (origin, callback) {
+        callback(null, true)
+    },
+    credentials: true,
+}))
+
 app.get('/me', (req, res) => {
     // Get the referrer header
     const referrer = req.get('Referer') || req.get('Referrer');
@@ -28,13 +36,6 @@ app.get('/ping', (req, res) => {
 
     res.send(`Hi, you are from ${referrer || referer2 || origin}`)
 })
-
-app.use(cors({
-    origin: function (origin, callback) {
-        callback(null, true)
-    },
-    credentials: true,
-}))
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
