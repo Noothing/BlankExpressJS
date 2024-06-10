@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     console.log(req)
     console.log(referrer, referer2, origin);
 
-    fetch('http://dpg.noothing.xyz')
+    // fetch('http://dpg.noothing.xyz')
 
     // Log the referrer or send it in the response
     res.send({
