@@ -17,6 +17,24 @@ app.get('/', (req, res) => {
     });
 })
 
+var router = express.Router();
+
+//api specific routes
+router.get('/', function (req, res) {
+    // Get the referrer header
+    const referrer = req.get('Referer') || req.get('Referrer');
+    res.send(`Welcome to our API on ${referrer}!`);
+});
+
+router.get('/users', function (req, res) {
+    res.json([
+        {name: "Brian"}
+    ]);
+});
+
+app.use(subdomain('api', router));
+app.listen(3000);
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
