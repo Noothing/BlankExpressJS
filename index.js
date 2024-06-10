@@ -17,11 +17,12 @@ app.get('/me', (req, res) => {
     const referer2 = req.headers.referer || req.headers.referrer;
     const origin = req.headers.origin;
 
-    const requestDomain = referrer || referer2 || origin
+    console.log(req)
+    console.log(referrer, referer2, origin)
 
     res.send({
         success: true,
-        data: requestDomain,
+        data: `${referrer}, ${referer2}, ${origin}`,
     })
 })
 
