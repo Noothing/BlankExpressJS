@@ -1,14 +1,20 @@
 const express = require('express')
 const cors = require('cors')
-const path = require('path');
 const app = express()
 const port = 3001
 
-let i = 0
+app.get('/me', (req, res) => {
+    // Get the referrer header
+    const referrer = req.get('Referer') || req.get('Referrer');
+    const referer2 = req.headers.referer || req.headers.referrer;
+    const origin = req.headers.origin;
 
-app.get('/', (req, res) => {
-    // Log the referrer or send it in the response
-    res.sendFile(path.join(__dirname, '/index.html'))
+    const requestDomain = referrer || referer2 || origin
+
+    res.send({
+        success: true,
+        data: requestDomain,
+    })
 })
 
 app.get('/ping', (req, res) => {
