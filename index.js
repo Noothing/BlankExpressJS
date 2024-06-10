@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const subdomain = require('express-subdomain')
 
 app.get('/', (req, res) => {
     // Get the referrer header
