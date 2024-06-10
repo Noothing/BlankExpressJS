@@ -8,7 +8,8 @@ app.get('/', (req, res) => {
     const referer2 = req.headers.referer || req.headers.referrer;
     const origin = req.headers.origin;
 
-    console.log('kek')
+    console.log(req)
+    console.log(referrer, referer2, origin);
 
 
     // Log the referrer or send it in the response
