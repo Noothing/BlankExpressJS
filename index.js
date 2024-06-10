@@ -34,8 +34,6 @@ router.get('/users', function (req, res) {
 });
 
 app.use(subdomain('api', router));
-app.listen(3000);
-
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
